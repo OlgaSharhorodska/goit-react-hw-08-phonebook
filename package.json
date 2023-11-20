@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://OlgaSharhorodska.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.16.3",

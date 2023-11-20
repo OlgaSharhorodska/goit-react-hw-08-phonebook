@@ -1,39 +1,34 @@
 import React, { useEffect } from 'react';
-import { TitlePhonebook } from './TitlePhonebook/TitlePhonebook';
-import { TitleContacts } from './TitleContacts/TitleContacts';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Container } from './Container/Container.styled';
-import { Section } from './Section/Section.styled';
-import { Loader } from './Loader/loader';
-import { selectContactError, selectContactIsLoading } from 'redux/selectors';
-import { useDispatch, useSelector } from 'react-redux';
-import ErrMessage from './ErrMessage/ErrMessage';
-import { fetchContacts } from '../redux/operations';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import { Home } from 'Page/Home';
+import { Register } from 'Page/Register/Register';
+import { LogIn } from 'Page/LogIn/LogIn';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/auth-operations';
+import { Phonebook } from 'Page/Phonebook';
+import { useAuth } from 'hook';
+import { LogOut } from './LogOut/LogOut';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectContactIsLoading);
-  const error = useSelector(selectContactError);
+  // const { isRefreshing } = useAuth();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // при кожному монтуванні Арр, персіст записує значеня токена із ЛС в Редакс
+  useEffect(() => dispatch(refreshUser), [dispatch]);
 
   return (
-    <Container>
-      <Section>
-        <TitlePhonebook title="Phonebook" />
-        <ContactForm />
-      </Section>
-      <Section>
-        <TitleContacts title="Contacts" />
-        <Filter />
-        <ContactList />
-        {isLoading && <Loader />}
-        {error && <ErrMessage />}
-      </Section>
-    </Container>
+    // isRefreshing ?(
+    //   <b>Refreshing user...</b>
+    // ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="registration" element={<Register />} />
+        <Route path="logIn" element={<LogIn />} />
+        <Route path="logOut" element={<LogOut />} />
+        <Route path="phonebook" element={<Phonebook />} />
+      </Route>
+    </Routes>
   );
 };

@@ -7,7 +7,6 @@ import { LogIn } from 'Page/LogIn/LogIn';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/auth-operations';
 import { Phonebook } from 'Page/Phonebook';
-import { useAuth } from 'hook';
 import { LogOut } from './LogOut/LogOut';
 
 export const App = () => {

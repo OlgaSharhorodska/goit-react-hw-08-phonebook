@@ -2,7 +2,6 @@ import React from 'react';
 import { HeaderNav, HeaderWrap } from './Header.styled';
 import { NavLink } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { useAuth } from 'hook';
 
 export const Header = () => {
   // const { isLoggedIn } = useAuth();

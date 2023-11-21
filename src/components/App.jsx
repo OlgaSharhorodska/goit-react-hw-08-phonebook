@@ -5,7 +5,7 @@ import { Home } from 'Page/Home';
 import { Register } from 'Page/Register/Register';
 import { LogIn } from 'Page/LogIn/LogIn';
 import { useDispatch } from 'react-redux';
-import { refreshUser } from 'redux/auth/auth-operations';
+import { refreshUser } from 'redux/auth/operations';
 import { Phonebook } from 'Page/Phonebook';
 import { LogOut } from './LogOut/LogOut';
 

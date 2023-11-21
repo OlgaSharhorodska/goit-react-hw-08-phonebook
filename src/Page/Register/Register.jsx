@@ -4,9 +4,9 @@ import { Section } from 'components/Section/Section.styled';
 import { Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/auth-operations';
+import { register } from 'redux/auth/operations';
 
-export const Register = () => {
+const Register = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -78,3 +78,5 @@ export const Register = () => {
     </main>
   );
 };
+
+export default Register;

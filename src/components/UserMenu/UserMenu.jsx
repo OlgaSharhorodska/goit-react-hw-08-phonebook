@@ -1,6 +1,6 @@
 import { Box, Button } from '@mui/material';
 import { AuthNavWrap } from 'components/AutnNav/AuthNav.styled';
-import { useAuth } from 'hooks';
+import { useAuth } from 'hook';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 
